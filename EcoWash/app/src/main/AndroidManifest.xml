@@ -17,6 +17,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".ui.MakeReservationActivity">
+
+        </activity>
+
+        <activity android:name=".ui.MyReservationsActivity">
+
+        </activity>
+
+        <activity android:name=".ui.WashNowActivity">
+
+        </activity>
     </application>
 
 </manifest>
