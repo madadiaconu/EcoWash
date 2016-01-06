@@ -4,73 +4,65 @@
     android:layout_height="match_parent"
     android:weightSum="3"
     android:orientation="vertical"
-    android:padding="@dimen/card_margin"
-    tools:context=".MainActivity"
-    android:background="@drawable/bg_main">
+    tools:context=".MainActivity">
 
-    <android.support.v7.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    <RelativeLayout
         android:id="@+id/myReservations"
         android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_margin="@dimen/card_margin"
-        card_view:cardCornerRadius="@dimen/card_corner_radius"
-        card_view:cardElevation="@dimen/card_elevation"
-        card_view:cardBackgroundColor="@android:color/transparent">
+        android:background="#4CAF50">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_centerInParent="true"
             android:gravity="center"
             android:text="@string/my_reservations"
             android:textColor="@color/white"
             android:textSize="@dimen/card_text"
             />
-    </android.support.v7.widget.CardView>
+        
+    </RelativeLayout>
 
-    <android.support.v7.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    <RelativeLayout
         android:id="@+id/newReservation"
         android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_margin="@dimen/card_margin"
-        card_view:cardCornerRadius="@dimen/card_corner_radius"
-        card_view:cardElevation="@dimen/card_elevation"
-        card_view:cardBackgroundColor="@android:color/transparent">
+        android:background="#8BC34A"
+        >
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
+            android:layout_centerInParent="true"
             android:text="@string/make_reservation"
             android:textColor="@color/white"
             android:textSize="@dimen/card_text"/>
-    </android.support.v7.widget.CardView>
+    </RelativeLayout>
 
-    <android.support.v7.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    <RelativeLayout
         android:id="@+id/washNow"
         android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_margin="@dimen/card_margin"
-        card_view:cardCornerRadius="@dimen/card_corner_radius"
-        card_view:cardElevation="@dimen/card_elevation"
-        card_view:cardBackgroundColor="@android:color/transparent">
+        android:background="#CDDC39"
+        >
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_centerInParent="true"
             android:gravity="center"
             android:text="@string/wash_now"
             android:textColor="@color/white"
             android:textSize="@dimen/card_text"
             />
-    </android.support.v7.widget.CardView>
+    </RelativeLayout>
 
 </LinearLayout>
