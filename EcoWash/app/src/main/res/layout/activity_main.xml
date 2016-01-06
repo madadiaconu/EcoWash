@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="#4CAF50">
+        android:background="@color/my_reservations">
 
         <TextView
             android:layout_width="match_parent"
@@ -32,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="#8BC34A"
+        android:background="@color/make_reservation"
         >
 
         <TextView
@@ -51,7 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="#CDDC39"
+        android:background="@color/wash_now"
         >
 
         <TextView

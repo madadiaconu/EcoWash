@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="white">#FFFFFF</color>
+    <color name="my_reservations">#4CAF50</color>
+    <color name="make_reservation">#8BC34A</color>
+    <color name="wash_now">#CDDC39</color>
 </resources>
