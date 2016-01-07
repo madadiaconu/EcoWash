@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="white">#FFFFFF</color>
+<<<<<<< HEAD
 
     <!--Login Screen-->
     <color name="red">#FF0000</color>
     <color name="login_btn">#469FCC</color>
 
+=======
+    <color name="my_reservations">#4CAF50</color>
+    <color name="make_reservation">#8BC34A</color>
+    <color name="wash_now">#CDDC39</color>
+>>>>>>> feature/myReservationsScreen
 </resources>
