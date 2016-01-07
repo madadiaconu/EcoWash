@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:padding="16dp">
+
+    <ImageView
+        android:layout_width="@dimen/logo_size"
+        android:layout_height="@dimen/logo_size"
+        android:src="@drawable/washing_machine"
+        android:layout_marginBottom="@dimen/logo_bottom_margin"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:src="@drawable/user"/>
+
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_edit_text"
+            android:layout_marginRight="@dimen/margin_edit_text"
+            android:imeOptions="actionNext"
+            android:inputType="text"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/margin_edit_text">
+
+        <ImageView
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:src="@drawable/pass"/>
+
+        <EditText
+            android:id="@+id/pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_edit_text"
+            android:layout_marginRight="@dimen/margin_edit_text"
+            android:password="true"
+            android:imeOptions="actionDone"
+            android:inputType="text"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/loginBtn"
+        android:layout_width="@dimen/login_btn_width"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/login_btn_margin"
+        android:text="@string/login"
+        android:background="@color/login_btn"/>
+
+    <TextView
+        android:id="@+id/emptyFieldsMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/login_empty"
+        android:textColor="@color/red"
+        android:gravity="center_horizontal"
+        android:visibility="invisible"/>
+
+</LinearLayout>
