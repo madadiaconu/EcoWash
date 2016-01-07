@@ -28,7 +28,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_edit_text"
-            android:layout_marginRight="@dimen/margin_edit_text"/>
+            android:layout_marginRight="@dimen/margin_edit_text"
+            android:imeOptions="actionNext"
+            android:inputType="text"/>
     </LinearLayout>
 
     <LinearLayout
@@ -47,10 +49,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_edit_text"
-            android:layout_marginRight="@dimen/margin_edit_text"/>
+            android:layout_marginRight="@dimen/margin_edit_text"
+            android:password="true"
+            android:imeOptions="actionDone"
+            android:inputType="text"/>
     </LinearLayout>
 
     <Button
+        android:id="@+id/loginBtn"
         android:layout_width="@dimen/login_btn_width"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/login_btn_margin"
@@ -58,6 +64,7 @@
         android:background="@color/login_btn"/>
 
     <TextView
+        android:id="@+id/emptyFieldsMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/login_empty"
