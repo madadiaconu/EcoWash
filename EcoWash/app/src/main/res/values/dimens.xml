@@ -3,6 +3,14 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
+    <!--Login Screen-->
+    <dimen name="logo_size">80dp</dimen>
+    <dimen name="logo_bottom_margin">60dp</dimen>
+    <dimen name="icon_size">40dp</dimen>
+    <dimen name="margin_edit_text">10dp</dimen>
+    <dimen name="login_btn_width">140dp</dimen>
+    <dimen name="login_btn_margin">20dp</dimen>
+
     <!--Landing Screen-->
     <dimen name="card_margin">2dp</dimen>
     <dimen name="card_corner_radius">4dp</dimen>
