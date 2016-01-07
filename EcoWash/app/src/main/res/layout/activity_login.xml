@@ -9,7 +9,7 @@
 
     <ImageView
         android:layout_width="@dimen/logo_size"
-        android:layout_height="80dp"
+        android:layout_height="@dimen/logo_size"
         android:src="@drawable/washing_machine"
         android:layout_marginBottom="@dimen/logo_bottom_margin"/>
 
@@ -54,7 +54,8 @@
         android:layout_width="@dimen/login_btn_width"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/login_btn_margin"
-        android:text="@string/login"/>
+        android:text="@string/login"
+        android:background="@color/login_btn"/>
 
     <TextView
         android:layout_width="match_parent"
