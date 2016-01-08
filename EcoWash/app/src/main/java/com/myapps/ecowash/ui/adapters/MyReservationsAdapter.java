@@ -3,12 +3,13 @@ package com.myapps.ecowash.ui.adapters;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.myapps.ecowash.R;
@@ -39,7 +40,7 @@ public class MyReservationsAdapter extends ArrayAdapter<Reservation>{
             viewHolder.date = (TextView) convertView.findViewById(R.id.reservationDate);
             viewHolder.hour = (TextView) convertView.findViewById(R.id.reservationHour);
             viewHolder.machine = (TextView) convertView.findViewById(R.id.reservationMachine);
-            viewHolder.cancelBtn = (Button) convertView.findViewById(R.id.cancelReservation);
+            viewHolder.cancel = (ImageView) convertView.findViewById(R.id.cancelReservation);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
@@ -47,11 +48,10 @@ public class MyReservationsAdapter extends ArrayAdapter<Reservation>{
 
         final Reservation currentReservation = reservations.get(position);
         if(currentReservation != null) {
-            Log.d("zzz",currentReservation.toString());
             viewHolder.date.setText(currentReservation.getDate());
-            viewHolder.hour.setText(currentReservation.getHour()+"");
+            viewHolder.hour.setText(Html.fromHtml(currentReservation.getHour()+"<sup>00</sup>"));
             viewHolder.machine.setText(currentReservation.getWashingMachine().getName());
-            viewHolder.cancelBtn.setOnClickListener(new View.OnClickListener() {
+            viewHolder.cancel.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     try {
@@ -74,6 +74,6 @@ public class MyReservationsAdapter extends ArrayAdapter<Reservation>{
         TextView date;
         TextView hour;
         TextView machine;
-        Button cancelBtn;
+        ImageView cancel;
     }
 }
