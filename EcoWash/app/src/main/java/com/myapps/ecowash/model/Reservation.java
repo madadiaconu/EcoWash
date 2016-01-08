@@ -1,15 +1,13 @@
 package com.myapps.ecowash.model;
 
-import java.util.Date;
-
 public class Reservation {
     private String objectId;
-    private Date date;
+    private String date;
     private int hour;
-    private String user;
-    private String washingMachine;
+    private User user;
+    private WashingMachine washingMachine;
 
-    public Reservation(String objectId, Date date, int hour, String user, String washingMachine) {
+    public Reservation(String objectId, String date, int hour, User user, WashingMachine washingMachine) {
         this.objectId = objectId;
         this.date = date;
         this.hour = hour;
@@ -25,11 +23,11 @@ public class Reservation {
         this.objectId = objectId;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -41,19 +39,19 @@ public class Reservation {
         this.hour = hour;
     }
 
-    public String getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(String user) {
+    public void setUser(User user) {
         this.user = user;
     }
 
-    public String getWashingMachine() {
+    public WashingMachine getWashingMachine() {
         return washingMachine;
     }
 
-    public void setWashingMachine(String washingMachine) {
+    public void setWashingMachine(WashingMachine washingMachine) {
         this.washingMachine = washingMachine;
     }
 
