@@ -2,27 +2,36 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="100dp"
     android:weightSum="100">
 
     <TextView
         android:id="@+id/reservationDate"
         android:layout_width="0dp"
         android:layout_weight="35"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent" />
 
     <TextView
+        android:id="@+id/reservationHour"
         android:layout_width="0dp"
         android:layout_weight="20"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent" />
 
-    <TextView
-        android:layout_width="0dp"
-        android:layout_weight="30"
-        android:layout_height="wrap_content" />
-
-    <Button
+    <ImageView
+        android:layout_height="match_parent"
         android:layout_width="0dp"
         android:layout_weight="15"
-        android:layout_height="wrap_content"/>
+        android:src="@drawable/washing_machine"/>
+
+    <TextView
+        android:id="@+id/reservationMachine"
+        android:layout_width="0dp"
+        android:layout_weight="15"
+        android:layout_height="match_parent" />
+
+    <Button
+        android:id="@+id/cancelReservation"
+        android:layout_width="0dp"
+        android:layout_weight="15"
+        android:layout_height="match_parent"/>
 </LinearLayout>

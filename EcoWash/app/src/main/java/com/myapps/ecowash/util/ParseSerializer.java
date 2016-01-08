@@ -9,6 +9,9 @@ import com.parse.ParseObject;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Helper class for building model objects from ParseObjects
+ */
 public class ParseSerializer {
 
     public static Reservation buildReservation(ParseObject parseObject){

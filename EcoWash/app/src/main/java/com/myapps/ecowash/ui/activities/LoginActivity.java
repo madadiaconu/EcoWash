@@ -1,4 +1,4 @@
-package com.myapps.ecowash.ui;
+package com.myapps.ecowash.ui.activities;
 
 import android.app.AlertDialog;
 import android.os.Bundle;

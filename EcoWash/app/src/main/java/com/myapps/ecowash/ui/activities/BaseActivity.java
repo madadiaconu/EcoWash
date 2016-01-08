@@ -1,4 +1,4 @@
-package com.myapps.ecowash.ui;
+package com.myapps.ecowash.ui.activities;
 
 import android.app.Activity;
 import android.content.Intent;
