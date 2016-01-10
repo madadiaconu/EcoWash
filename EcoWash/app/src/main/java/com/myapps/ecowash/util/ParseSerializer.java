@@ -15,12 +15,17 @@ import java.util.List;
 public class ParseSerializer {
 
     public static Reservation buildReservation(ParseObject parseObject){
-        String objectId = parseObject.getObjectId();
-        String date = parseObject.getString("date");
-        int hour = parseObject.getInt("hour");
-        User user = buildUser(parseObject.getParseObject("user"));
-        WashingMachine washingMachine = buildWashingMachine(parseObject.getParseObject("washingMachine"));
-        return new Reservation(objectId,date,hour,user,washingMachine);
+        try {
+            String objectId = parseObject.fetchIfNeeded().getObjectId();
+            String date = parseObject.fetchIfNeeded().getString("date");
+            int hour = parseObject.fetchIfNeeded().getInt("hour");
+            User user = buildUser(parseObject.getParseObject("user"));
+            WashingMachine washingMachine = buildWashingMachine(parseObject.getParseObject("washingMachine"));
+            return new Reservation(objectId, date, hour, user, washingMachine);
+        } catch (ParseException ex){
+            ex.printStackTrace();
+            return null;
+        }
     }
 
     public static WashingMachine buildWashingMachine(ParseObject parseObject){
@@ -35,11 +40,16 @@ public class ParseSerializer {
     }
 
     public static User buildUser(ParseObject parseObject){
-        String objectId = parseObject.getObjectId();
-        String username = parseObject.getString("username");
-        String password = parseObject.getString("password");
-        String email = parseObject.getString("email");
-        return new User(objectId,username,password,email);
+        try {
+            String objectId = parseObject.fetchIfNeeded().getObjectId();
+            String username = parseObject.fetchIfNeeded().getString("username");
+            String password = parseObject.fetchIfNeeded().getString("password");
+            String email = parseObject.fetchIfNeeded().getString("email");
+            return new User(objectId, username, password, email);
+        } catch (ParseException ex){
+            ex.printStackTrace();
+            return null;
+        }
     }
 
     public static List<Reservation> buildReservationList(List<ParseObject> parseObjectList){
