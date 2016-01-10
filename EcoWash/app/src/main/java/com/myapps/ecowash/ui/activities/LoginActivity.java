@@ -1,4 +1,4 @@
-package com.myapps.ecowash.ui;
+package com.myapps.ecowash.ui.activities;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.myapps.ecowash.R;
 import com.myapps.ecowash.bl.ParseClient;
+import com.myapps.ecowash.util.DialogManager;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
@@ -41,11 +42,9 @@ public class LoginActivity extends BaseActivity{
                             if (e == null) {
                                 goToActivity(MainActivity.class);
                             } else {
-                                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(LoginActivity.this);
-                                alertDialogBuilder.setMessage("Login unsuccessful. Please try again.");
-                                alertDialogBuilder.setPositiveButton("Ok", null);
-                                AlertDialog alertDialog = alertDialogBuilder.create();
-                                alertDialog.show();
+                                if (!isFinishing()) {
+                                    DialogManager.createSimpleDialog(LoginActivity.this, R.string.login_error).show();
+                                }
                             }
                         }
                     });

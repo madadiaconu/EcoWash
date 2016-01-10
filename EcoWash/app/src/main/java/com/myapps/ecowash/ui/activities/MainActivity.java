@@ -1,4 +1,4 @@
-package com.myapps.ecowash.ui;
+package com.myapps.ecowash.ui.activities;
 
 import android.os.Bundle;
 import android.view.View;

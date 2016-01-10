@@ -1,8 +1,10 @@
 package com.myapps.ecowash.bl;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.myapps.ecowash.model.Reservation;
+import com.myapps.ecowash.util.ParseSerializer;
 import com.parse.FunctionCallback;
 import com.parse.LogInCallback;
 import com.parse.Parse;
@@ -37,6 +39,20 @@ public class ParseClient {
 
     public void login(String username, String password, LogInCallback callback){
         ParseUser.logInInBackground(username,password,callback);
+    }
+
+    public void getMyReservations(final ParseCallback<List<Reservation>> callback){
+        HashMap<String, String> params = new HashMap<String, String>();
+        ParseCloud.callFunctionInBackground(ParseConstants.GET_MY_RESERVATIONS, params, new FunctionCallback<List<ParseObject>>() {
+            @Override
+            public void done(List<ParseObject> reservations, ParseException e) {
+                if (e==null){
+                    callback.onSuccess(ParseSerializer.buildReservationList(reservations));
+                } else {
+                    callback.onFailure(e);
+                }
+            }
+        });
     }
 
     public void getReservations(String date, final ParseCallback<List<ParseObject>> callback){
