@@ -2,9 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_height="@dimen/item_height"
     android:layout_gravity="center"
-    android:padding="5dp"
+    android:padding="@dimen/item_padding"
     android:gravity="center_vertical"
     android:weightSum="100">
 
@@ -14,7 +14,7 @@
         android:layout_weight="35"
         android:layout_height="match_parent"
         android:gravity="center_vertical"
-        android:textSize="18sp"/>
+        android:textSize="@dimen/item_text_size"/>
 
     <TextView
         android:id="@+id/reservationHour"
@@ -22,10 +22,10 @@
         android:layout_weight="20"
         android:layout_height="match_parent"
         android:gravity="center_vertical"
-        android:textSize="18sp" />
+        android:textSize="@dimen/item_text_size" />
 
     <ImageView
-        android:layout_height="25dp"
+        android:layout_height="@dimen/icon_height"
         android:layout_width="0dp"
         android:layout_weight="15"
         android:layout_gravity="center_vertical"
@@ -37,13 +37,13 @@
         android:layout_weight="15"
         android:layout_height="match_parent"
         android:gravity="center_vertical"
-        android:textSize="18sp" />
+        android:textSize="@dimen/item_text_size" />
 
     <ImageView
         android:id="@+id/cancelReservation"
         android:layout_width="0dp"
         android:layout_weight="15"
-        android:layout_height="25dp"
+        android:layout_height="@dimen/icon_height"
         android:gravity="center_vertical"
         android:src="@drawable/cancel"/>
 </LinearLayout>

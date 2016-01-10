@@ -8,11 +8,11 @@
     <TextView
         android:id="@+id/reservationDate"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="@dimen/headline_height"
         android:layout_gravity="center"
         android:gravity="center"
         android:text="@string/my_reservations"
-        android:textSize="18sp"
+        android:textSize="@dimen/headline_text_size"
      />
 
 </LinearLayout>
