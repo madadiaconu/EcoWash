@@ -55,14 +55,14 @@ public class ParseClient {
         });
     }
 
-    public void getReservations(String date, final ParseCallback<List<ParseObject>> callback){
+    public void getReservations(String date, final ParseCallback<List<Reservation>> callback){
         HashMap<String, String> params = new HashMap<String, String>();
         params.put(ParseConstants.DATE, date);
         ParseCloud.callFunctionInBackground(ParseConstants.GET_RSERVATIONS, params, new FunctionCallback<List<ParseObject>>() {
             @Override
             public void done(List<ParseObject> reservations, ParseException e) {
                 if (e==null){
-                    callback.onSuccess(reservations);
+                    callback.onSuccess(ParseSerializer.buildReservationList(reservations));
                 } else {
                     callback.onFailure(e);
                 }
