@@ -20,12 +20,14 @@
 
         <activity
             android:name=".ui.activities.MainActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen">
 
         </activity>
 
         <activity android:name=".ui.activities.LoginActivity"
-            android:noHistory="true">
+            android:noHistory="true"
+            android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,15 +35,18 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.activities.MakeReservationActivity">
+        <activity android:name=".ui.activities.MakeReservationActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen">
 
         </activity>
 
-        <activity android:name=".ui.activities.MyReservationsActivity">
+        <activity android:name=".ui.activities.MyReservationsActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen">
 
         </activity>
 
-        <activity android:name=".ui.activities.WashNowActivity">
+        <activity android:name=".ui.activities.WashNowActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen">
 
         </activity>
     </application>
