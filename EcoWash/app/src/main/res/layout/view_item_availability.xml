@@ -2,25 +2,26 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:weightSum="100">
+    android:layout_height="@dimen/item_height"
+    android:weightSum="100"
+    android:padding="5dp">
 
     <TextView
         android:id="@+id/availabilityHour"
         android:layout_width="0dp"
-        android:layout_weight="80"
-        android:layout_height="wrap_content"/>
+        android:layout_weight="70"
+        android:layout_height="match_parent"/>
 
     <ImageView
         android:layout_width="0dp"
-        android:layout_weight="10"
-        android:layout_height="wrap_content"
+        android:layout_weight="15"
+        android:layout_height="match_parent"
         android:src="@drawable/washing_machine"/>
 
     <TextView
         android:id="@+id/availabilityNumber"
         android:layout_width="0dp"
-        android:layout_weight="10"
-        android:layout_height="wrap_content" />
+        android:layout_weight="15"
+        android:layout_height="match_parent" />
 
 </LinearLayout>

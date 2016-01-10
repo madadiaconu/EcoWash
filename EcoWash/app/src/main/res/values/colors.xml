@@ -6,7 +6,7 @@
     <color name="red">#FF0000</color>
     <color name="login_btn">#469FCC</color>
 
-    <color name="my_reservations">#4CAF50</color>
-    <color name="make_reservation">#8BC34A</color>
-    <color name="wash_now">#CDDC39</color>
+    <color name="my_reservations">#1976D2</color>
+    <color name="make_reservation">#1E88E5</color>
+    <color name="wash_now">#2196F3</color>
 </resources>

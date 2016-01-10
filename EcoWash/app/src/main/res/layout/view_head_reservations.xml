@@ -6,7 +6,6 @@
     android:background="@color/my_reservations">
 
     <TextView
-        android:id="@+id/reservationDate"
         android:layout_width="match_parent"
         android:layout_height="@dimen/headline_height"
         android:layout_gravity="center"
