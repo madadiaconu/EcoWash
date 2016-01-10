@@ -25,7 +25,15 @@ public class MyReservationsActivity extends BaseActivity {
         setContentView(R.layout.activity_my_reservations);
         myReservations = (ListView) findViewById(R.id.myReservationsList);
         addCustomHeader();
+        addData();
+    }
 
+    private void addCustomHeader(){
+        View header = getLayoutInflater().inflate(R.layout.view_head_reservations,null);
+        myReservations.addHeaderView(header);
+    }
+
+    private void addData(){
         ParseClient.getInstance().getMyReservations(new ParseCallback<List<Reservation>>() {
             @Override
             public void onSuccess(List<Reservation> result) {
@@ -38,10 +46,5 @@ public class MyReservationsActivity extends BaseActivity {
                 exception.printStackTrace();
             }
         });
-    }
-
-    private void addCustomHeader(){
-        View header = getLayoutInflater().inflate(R.layout.view_head_reservations,null);
-        myReservations.addHeaderView(header);
     }
 }

@@ -3,6 +3,7 @@ package com.myapps.ecowash.ui.adapters;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import com.myapps.ecowash.R;
 import com.myapps.ecowash.bl.ParseClient;
 import com.myapps.ecowash.model.Reservation;
+import com.myapps.ecowash.util.DialogManager;
 import com.parse.ParseException;
 
 import java.util.List;
@@ -54,16 +56,25 @@ public class MyReservationsAdapter extends ArrayAdapter<Reservation>{
             viewHolder.cancel.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    try {
-                        ParseClient.getInstance().cancelReservation(currentReservation.getObjectId());
-                    } catch (ParseException e) {
-                        e.printStackTrace();
-                        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getContext());
-                        alertDialogBuilder.setMessage("Could not cancel reservation. Please try again.");
-                        alertDialogBuilder.setPositiveButton("Ok", null);
-                        AlertDialog alertDialog = alertDialogBuilder.create();
-                        alertDialog.show();
-                    }
+                    DialogManager.createDialog(
+                            getContext(),
+                            R.string.confirm_cancel_reservation,
+                            R.string.yes,
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    try {
+                                        ParseClient.getInstance().cancelReservation(currentReservation.getObjectId());
+                                        reservations.remove(currentReservation);
+                                        notifyDataSetChanged();
+                                    } catch (ParseException e) {
+                                        DialogManager.createSimpleDialog(getContext(),R.string.myreservation_cancer_error).show();
+                                        e.printStackTrace();
+                                    }
+                                }
+                            },
+                            R.string.no,
+                            null).show();
                 }
             });
         }
