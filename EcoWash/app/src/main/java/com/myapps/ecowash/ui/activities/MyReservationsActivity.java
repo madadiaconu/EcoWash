@@ -1,11 +1,9 @@
 package com.myapps.ecowash.ui.activities;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 
-import com.myapps.ecowash.App;
 import com.myapps.ecowash.R;
 import com.myapps.ecowash.bl.ParseCallback;
 import com.myapps.ecowash.bl.ParseClient;
@@ -34,16 +32,19 @@ public class MyReservationsActivity extends BaseActivity {
     }
 
     private void addData(){
+        showProgress("Loading reservations...");
         ParseClient.getInstance().getMyReservations(new ParseCallback<List<Reservation>>() {
             @Override
             public void onSuccess(List<Reservation> result) {
                 MyReservationsAdapter adapter = new MyReservationsAdapter(MyReservationsActivity.this,R.layout.view_item_reservation,result);
                 myReservations.setAdapter(adapter);
+                hideProgress();
             }
 
             @Override
             public void onFailure(ParseException exception) {
                 exception.printStackTrace();
+                hideProgress();
             }
         });
     }

@@ -1,6 +1,5 @@
 package com.myapps.ecowash.ui.activities;
 
-import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -36,9 +35,11 @@ public class LoginActivity extends BaseActivity{
                     emptyFieldsMessage.setVisibility(View.VISIBLE);
                 } else {
                     emptyFieldsMessage.setVisibility(View.INVISIBLE);
+                    showProgress("Logging in...");
                     ParseClient.getInstance().login(username, pass, new LogInCallback() {
                         @Override
                         public void done(ParseUser user, ParseException e) {
+                            hideProgress();
                             if (e == null) {
                                 goToActivity(MainActivity.class);
                             } else {

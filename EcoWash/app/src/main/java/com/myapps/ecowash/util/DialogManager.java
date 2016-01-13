@@ -19,10 +19,26 @@ public class DialogManager {
         return alertDialogBuilder.create();
     }
 
+    public static AlertDialog createSimpleDialog(Context context, String message){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+        alertDialogBuilder.setMessage(message);
+        alertDialogBuilder.setPositiveButton(R.string.ok,null);
+        return alertDialogBuilder.create();
+    }
+
     public static AlertDialog createDialog(Context context, int messageId, int positiveBtnId, DialogInterface.OnClickListener positiveBtnAction,
                                            int negativeBtnId, DialogInterface.OnClickListener negativeBtnAction){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
         alertDialogBuilder.setMessage(messageId);
+        alertDialogBuilder.setPositiveButton(positiveBtnId,positiveBtnAction);
+        alertDialogBuilder.setNegativeButton(negativeBtnId,negativeBtnAction);
+        return alertDialogBuilder.create();
+    }
+
+    public static AlertDialog createDialog(Context context, String message, int positiveBtnId, DialogInterface.OnClickListener positiveBtnAction,
+                                           int negativeBtnId, DialogInterface.OnClickListener negativeBtnAction){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+        alertDialogBuilder.setMessage(message);
         alertDialogBuilder.setPositiveButton(positiveBtnId,positiveBtnAction);
         alertDialogBuilder.setNegativeButton(negativeBtnId,negativeBtnAction);
         return alertDialogBuilder.create();

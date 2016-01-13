@@ -3,6 +3,7 @@ package com.myapps.ecowash.bl;
 public class ParseConstants {
 
     public static final String DATE = "date";
+    public static final String HOUR = "hour";
     public static final String WASHING_MACHINE_ID = "washingMachineId";
     public static final String RESERVATION_ID = "reservationId";
 

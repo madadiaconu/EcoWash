@@ -3,6 +3,10 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
+    <!--General-->
+    <dimen name="headline_text_size">20sp</dimen>
+    <dimen name="headline_height">70dp</dimen>
+
     <!--Login Screen-->
     <dimen name="logo_size">80dp</dimen>
     <dimen name="logo_bottom_margin">60dp</dimen>
@@ -22,6 +26,9 @@
     <dimen name="item_padding">5dp</dimen>
     <dimen name="item_text_size">18sp</dimen>
     <dimen name="icon_height">25dp</dimen>
-    <dimen name="headline_text_size">20sp</dimen>
-    <dimen name="headline_height">70dp</dimen>
+
+    <!--WashNow-->
+    <dimen name="wash_now_padding">16sp</dimen>
+    <dimen name="wash_now_big_text">60sp</dimen>
+    <dimen name="wash_now_small_text">18sp</dimen>
 </resources>
