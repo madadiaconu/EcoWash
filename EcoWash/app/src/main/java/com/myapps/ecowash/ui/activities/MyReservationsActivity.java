@@ -32,7 +32,7 @@ public class MyReservationsActivity extends BaseActivity {
     }
 
     private void addData(){
-        showProgress("Loading reservations...");
+        showProgress(R.string.my_reservations_wait);
         ParseClient.getInstance().getMyReservations(new ParseCallback<List<Reservation>>() {
             @Override
             public void onSuccess(List<Reservation> result) {

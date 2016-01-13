@@ -51,7 +51,7 @@ public class LoginActivity extends BaseActivity{
     }
 
     private void login(String username, String pass){
-        showProgress("Logging in...");
+        showProgress(R.string.login_wait);
         ParseClient.getInstance().login(username, pass, new LogInCallback() {
             @Override
             public void done(ParseUser user, ParseException e) {

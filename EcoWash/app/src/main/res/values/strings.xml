@@ -4,6 +4,7 @@
     <string name="ok">Ok</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="wait">Please wait.</string>
 
     <!--Parse credentials-->
     <string name="parse_app_id">ilYrWDudJIze5TqYMfK1Q0uMy6pMqYSi7nfgWQsH</string>
@@ -13,6 +14,7 @@
     <string name="login">Login</string>
     <string name="login_empty">Please fill in both required fields</string>
     <string name="login_error">Login unsuccessful. Please try again.</string>
+    <string name="login_wait">Logging in...</string>
 
     <!--Landing Screen-->
     <string name="my_reservations">My Reservations</string>
@@ -22,6 +24,7 @@
     <!--MyReservations Screen-->
     <string name="myreservation_cancer_error">Could not cancel reservation. Please try again.</string>
     <string name="confirm_cancel_reservation">Do you want to cancel this reservation?</string>
+    <string name="my_reservations_wait">Loading reservations...</string>
 
     <!--Make Reservation-->
     <string name="make_reservation_confirmation">Do you want to make a reservation on </string>
@@ -29,9 +32,11 @@
     <string name="reservation_failed">Could not make reservation. Please try again later.</string>
     <string name="reservation_no_machines">There are no washing machines available.</string>
     <string name="reservation_already_has">You already have a reservation for the specified date and time.</string>
+    <string name="make_reservation_wait">Making reservation...</string>
 
     <!--Wash Now-->
     <string name="yes_explanation">There is at least one free washing machine now.</string>
     <string name="no_explanation">All washing machines are busy.</string>
     <string name="wash_now_error">Something went wrong with retrieving the current status. Please try again later.</string>
+    <string name="wash_now_wait">Getting status...</string>
 </resources>

@@ -68,7 +68,7 @@ public class AvailabilityAdapter extends ArrayAdapter<AvailabilityByHour> {
                             new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
-                                    context.showProgress("Making reservation...");
+                                    context.showProgress(R.string.make_reservation_wait);
                                     ParseClient.getInstance().makeReservation(currentItem.getDate(), currentItem.getHour(), new ParseCallback<String>() {
                                         @Override
                                         public void onSuccess(String machineName) {

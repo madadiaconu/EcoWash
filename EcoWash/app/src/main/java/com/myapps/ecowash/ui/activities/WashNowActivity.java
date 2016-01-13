@@ -17,7 +17,7 @@ public class WashNowActivity extends BaseActivity{
         final TextView bigText = (TextView) findViewById(R.id.washNowBigText);
         final TextView explanation = (TextView) findViewById(R.id.washNowExplanation);
 
-        showProgress("Getting status...");
+        showProgress(R.string.wash_now_wait);
         ParseClient.getInstance().washNow(new ParseCallback<Boolean>() {
             @Override
             public void onSuccess(Boolean available) {

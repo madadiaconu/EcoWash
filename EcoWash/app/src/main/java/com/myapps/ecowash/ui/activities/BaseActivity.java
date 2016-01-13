@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.view.View;
 
+import com.myapps.ecowash.R;
 import com.myapps.ecowash.bl.ParseClient;
 import com.myapps.ecowash.util.LocalStorageHandler;
 
@@ -20,9 +21,9 @@ public class BaseActivity extends Activity{
         startActivity(intent);
     }
 
-    public void showProgress(String message){
+    public void showProgress(int messageId){
         if (!isFinishing()) {
-            progressDialog = ProgressDialog.show(BaseActivity.this, "Please wait.", message, true,false);
+            progressDialog = ProgressDialog.show(BaseActivity.this, getString(R.string.wait), getString(messageId), true,false);
         }
     }
 
@@ -33,6 +34,6 @@ public class BaseActivity extends Activity{
     public void logout(View view) {
         ParseClient.getInstance().logout();
         LocalStorageHandler.deleteUser();
-        goToActivity(LoginActivity.class,true);
+        goToActivity(LoginActivity.class, true);
     }
 }
