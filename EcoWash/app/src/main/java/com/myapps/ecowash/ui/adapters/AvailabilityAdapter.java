@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,7 +33,7 @@ public class AvailabilityAdapter extends ArrayAdapter<AvailabilityByHour> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder viewHolder;
+        final ViewHolder viewHolder;
         if (convertView == null) {
             LayoutInflater inflater = ((Activity) getContext()).getLayoutInflater();
             convertView = inflater.inflate(layout, parent, false);
@@ -47,36 +48,42 @@ public class AvailabilityAdapter extends ArrayAdapter<AvailabilityByHour> {
         final AvailabilityByHour currentItem = availabilityByHourList.get(position);
         if (currentItem != null) {
             viewHolder.hour.setText(Html.fromHtml(currentItem.getHour() + "<sup>00</sup>"));
-            viewHolder.nbOfMachines.setText(currentItem.getWashingMachines().size() + "");
+            viewHolder.nbOfMachines.setText((6 - currentItem.getWashingMachines().size()) + "");
         }
 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String message = getContext().getResources().getString(R.string.make_reservation_confirmation) + " " + currentItem.getDate() + ", " + currentItem.getHour() + "h00?";
-                DialogManager.createDialog(
-                        getContext(),
-                        message,
-                        R.string.yes,
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                ParseClient.getInstance().makeReservation(currentItem.getDate(), currentItem.getHour(), new ParseCallback<String>() {
-                                    @Override
-                                    public void onSuccess(String machineName) {
-                                        String message = getContext().getResources().getString(R.string.reservation_confirmed) + machineName;
-                                        DialogManager.createSimpleDialog(getContext(), message).show();
-                                    }
+                if (Integer.valueOf(viewHolder.nbOfMachines.getText().toString())==0){
+                    DialogManager.createSimpleDialog(getContext(), R.string.reservation_no_machines).show();
+                } else {
+                    DialogManager.createDialog(
+                            getContext(),
+                            message,
+                            R.string.yes,
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    ParseClient.getInstance().makeReservation(currentItem.getDate(), currentItem.getHour(), new ParseCallback<String>() {
+                                        @Override
+                                        public void onSuccess(String machineName) {
+                                            String message = getContext().getResources().getString(R.string.reservation_confirmed) + machineName;
+                                            DialogManager.createSimpleDialog(getContext(), message).show();
+                                            viewHolder.nbOfMachines.setText((Integer.valueOf(viewHolder.nbOfMachines.getText().toString()) - 1) + "");
+                                            notifyDataSetChanged();
+                                        }
 
-                                    @Override
-                                    public void onFailure(ParseException exception) {
-                                        DialogManager.createSimpleDialog(getContext(), R.string.reservation_failed).show();
-                                    }
-                                });
+                                        @Override
+                                        public void onFailure(ParseException exception) {
+                                            DialogManager.createSimpleDialog(getContext(), R.string.reservation_failed).show();
+                                        }
+                                    });
 
-                            }
-                        }, R.string.no,
-                        null).show();
+                                }
+                            }, R.string.no,
+                            null).show();
+                }
             }
         });
 
