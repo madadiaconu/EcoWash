@@ -22,13 +22,7 @@ public class MyReservationsActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_reservations);
         myReservations = (ListView) findViewById(R.id.myReservationsList);
-        addCustomHeader();
         addData();
-    }
-
-    private void addCustomHeader(){
-        View header = getLayoutInflater().inflate(R.layout.view_head_reservations,null);
-        myReservations.addHeaderView(header);
     }
 
     private void addData(){

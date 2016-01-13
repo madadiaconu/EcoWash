@@ -3,17 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <include
+        android:id="@+id/header"
+        layout="@layout/view_head_reservations" />
+
+    <ListView
+        android:id="@+id/myReservationsList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <ListView
-            android:id="@+id/myReservationsList"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"></ListView>
-
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header" />
 
     <ImageButton
         android:layout_width="wrap_content"
