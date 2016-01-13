@@ -17,6 +17,7 @@ public class WashNowActivity extends BaseActivity{
         final TextView bigText = (TextView) findViewById(R.id.washNowBigText);
         final TextView explanation = (TextView) findViewById(R.id.washNowExplanation);
 
+        showProgress("Getting status...");
         ParseClient.getInstance().washNow(new ParseCallback<Boolean>() {
             @Override
             public void onSuccess(Boolean available) {
@@ -27,12 +28,14 @@ public class WashNowActivity extends BaseActivity{
                     bigText.setText(R.string.no);
                     explanation.setText(R.string.no_explanation);
                 }
+                hideProgress();
             }
 
             @Override
             public void onFailure(ParseException exception) {
                 bigText.setVisibility(View.GONE);
                 explanation.setText(R.string.wash_now_error);
+                hideProgress();
             }
         });
     }

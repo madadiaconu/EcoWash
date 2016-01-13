@@ -15,6 +15,7 @@ import com.myapps.ecowash.R;
 import com.myapps.ecowash.bl.ParseCallback;
 import com.myapps.ecowash.bl.ParseClient;
 import com.myapps.ecowash.model.AvailabilityByHour;
+import com.myapps.ecowash.ui.activities.BaseActivity;
 import com.myapps.ecowash.util.DialogManager;
 import com.parse.ParseException;
 
@@ -24,9 +25,11 @@ public class AvailabilityAdapter extends ArrayAdapter<AvailabilityByHour> {
 
     private int layout;
     private List<AvailabilityByHour> availabilityByHourList;
+    private BaseActivity context;
 
-    public AvailabilityAdapter(Context context, int resource, List<AvailabilityByHour> objects) {
+    public AvailabilityAdapter(BaseActivity context, int resource, List<AvailabilityByHour> objects) {
         super(context, resource, objects);
+        this.context = context;
         this.layout = resource;
         this.availabilityByHourList = objects;
     }
@@ -65,9 +68,11 @@ public class AvailabilityAdapter extends ArrayAdapter<AvailabilityByHour> {
                             new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
+                                    context.showProgress("Making reservation...");
                                     ParseClient.getInstance().makeReservation(currentItem.getDate(), currentItem.getHour(), new ParseCallback<String>() {
                                         @Override
                                         public void onSuccess(String machineName) {
+                                            context.hideProgress();
                                             String message = getContext().getResources().getString(R.string.reservation_confirmed) + machineName;
                                             DialogManager.createSimpleDialog(getContext(), message).show();
                                             viewHolder.nbOfMachines.setText((Integer.valueOf(viewHolder.nbOfMachines.getText().toString()) - 1) + "");
@@ -76,6 +81,7 @@ public class AvailabilityAdapter extends ArrayAdapter<AvailabilityByHour> {
 
                                         @Override
                                         public void onFailure(ParseException exception) {
+                                            context.hideProgress();
                                             DialogManager.createSimpleDialog(getContext(), R.string.reservation_failed).show();
                                         }
                                     });

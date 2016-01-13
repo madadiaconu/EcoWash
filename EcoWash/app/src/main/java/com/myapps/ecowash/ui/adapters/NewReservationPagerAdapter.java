@@ -14,6 +14,7 @@ import com.myapps.ecowash.bl.ParseCallback;
 import com.myapps.ecowash.bl.ParseClient;
 import com.myapps.ecowash.model.AvailabilityByHour;
 import com.myapps.ecowash.model.Reservation;
+import com.myapps.ecowash.ui.activities.BaseActivity;
 import com.myapps.ecowash.util.DateHandler;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -25,10 +26,10 @@ import java.util.List;
 public class NewReservationPagerAdapter extends android.support.v4.view.PagerAdapter {
 
     private List<Date> availableDays;
-    private Context context;
+    private BaseActivity context;
     private LayoutInflater layoutInflater;
 
-    public NewReservationPagerAdapter (Context context, LayoutInflater layoutInflater){
+    public NewReservationPagerAdapter (BaseActivity context, LayoutInflater layoutInflater){
         this.availableDays = new ArrayList<>();
         this.context = context;
         this.layoutInflater = layoutInflater;
