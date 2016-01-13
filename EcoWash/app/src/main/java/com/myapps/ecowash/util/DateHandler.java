@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class DateHandler {
 
@@ -17,6 +18,13 @@ public class DateHandler {
         DateFormat dateFormat = new SimpleDateFormat(format);
         Date date = new Date();
         return dateFormat.format(date);
+    }
+
+    public static int currentHour(){
+        Date date = new Date();   // given date
+        Calendar calendar = GregorianCalendar.getInstance(); // creates a new calendar instance
+        calendar.setTime(date);   // assigns calendar to given date
+        return calendar.get(Calendar.HOUR_OF_DAY);
     }
 
     public static String dateToString(Date date){
