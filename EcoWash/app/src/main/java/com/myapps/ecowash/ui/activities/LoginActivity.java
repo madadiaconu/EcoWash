@@ -41,7 +41,7 @@ public class LoginActivity extends BaseActivity{
                         public void done(ParseUser user, ParseException e) {
                             hideProgress();
                             if (e == null) {
-                                goToActivity(MainActivity.class);
+                                goToActivity(MainActivity.class,true);
                             } else {
                                 if (!isFinishing()) {
                                     DialogManager.createSimpleDialog(LoginActivity.this, R.string.login_error).show();

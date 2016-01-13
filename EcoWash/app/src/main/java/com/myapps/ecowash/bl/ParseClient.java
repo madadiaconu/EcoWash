@@ -180,4 +180,8 @@ public class ParseClient {
             }
         });
     }
+
+    public void logout(){
+        ParseUser.logOut();
+    }
 }

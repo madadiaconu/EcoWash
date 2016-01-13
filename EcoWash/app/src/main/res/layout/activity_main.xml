@@ -1,68 +1,76 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:weightSum="3"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:id="@+id/myReservations"
-        android:layout_gravity="center"
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/my_reservations">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="3"
+        tools:context=".MainActivity">
 
-        <TextView
+        <RelativeLayout
+            android:id="@+id/myReservations"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:text="@string/my_reservations"
-            android:textColor="@color/white"
-            android:textSize="@dimen/card_text"
-            />
-        
-    </RelativeLayout>
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/my_reservations">
 
-    <RelativeLayout
-        android:id="@+id/newReservation"
-        android:layout_gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/make_reservation"
-        >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/my_reservations"
+                android:textColor="@color/white"
+                android:textSize="@dimen/card_text" />
 
-        <TextView
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/newReservation"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_centerInParent="true"
-            android:text="@string/make_reservation"
-            android:textColor="@color/white"
-            android:textSize="@dimen/card_text"/>
-    </RelativeLayout>
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/make_reservation">
 
-    <RelativeLayout
-        android:id="@+id/washNow"
-        android:layout_gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/wash_now"
-        >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/make_reservation"
+                android:textColor="@color/white"
+                android:textSize="@dimen/card_text" />
+        </RelativeLayout>
 
-        <TextView
+        <RelativeLayout
+            android:id="@+id/washNow"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:text="@string/wash_now"
-            android:textColor="@color/white"
-            android:textSize="@dimen/card_text"
-            />
-    </RelativeLayout>
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/wash_now">
 
-</LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/wash_now"
+                android:textColor="@color/white"
+                android:textSize="@dimen/card_text" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <ImageButton
+        android:layout_margin="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:onClick="logout"
+        android:src="@drawable/logout" />
+</RelativeLayout>

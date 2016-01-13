@@ -17,7 +17,7 @@ public class MainActivity extends BaseActivity {
         findViewById(R.id.myReservations).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goToActivity(MyReservationsActivity.class);
+                goToActivity(MyReservationsActivity.class,false);
             }
         });
 
@@ -25,7 +25,7 @@ public class MainActivity extends BaseActivity {
         findViewById(R.id.newReservation).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goToActivity(MakeReservationActivity.class);
+                goToActivity(MakeReservationActivity.class,false);
             }
         });
 
@@ -33,7 +33,7 @@ public class MainActivity extends BaseActivity {
         findViewById(R.id.washNow).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goToActivity(WashNowActivity.class);
+                goToActivity(WashNowActivity.class,false);
             }
         });
     }
