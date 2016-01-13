@@ -15,6 +15,7 @@ import com.myapps.ecowash.R;
 import com.myapps.ecowash.bl.ParseCallback;
 import com.myapps.ecowash.bl.ParseClient;
 import com.myapps.ecowash.model.AvailabilityByHour;
+import com.myapps.ecowash.model.WashingMachine;
 import com.myapps.ecowash.ui.activities.BaseActivity;
 import com.myapps.ecowash.util.DialogManager;
 import com.parse.ParseException;
@@ -75,7 +76,7 @@ public class AvailabilityAdapter extends ArrayAdapter<AvailabilityByHour> {
                                             context.hideProgress();
                                             String message = getContext().getResources().getString(R.string.reservation_confirmed) + machineName;
                                             DialogManager.createSimpleDialog(getContext(), message).show();
-                                            viewHolder.nbOfMachines.setText((Integer.valueOf(viewHolder.nbOfMachines.getText().toString()) - 1) + "");
+                                            currentItem.addWashingMachine(new WashingMachine(machineName));
                                             notifyDataSetChanged();
                                         }
 

@@ -6,6 +6,10 @@ public class WashingMachine {
     private String name;
     private int maximumLoad;
 
+    public WashingMachine(String name){
+        this.name = name;
+    }
+
     public WashingMachine(String objectId, String name, int maximumLoad) {
         this.objectId = objectId;
         this.name = name;
