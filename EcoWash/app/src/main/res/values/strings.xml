@@ -23,4 +23,8 @@
     <string name="myreservation_cancer_error">Could not cancel reservation. Please try again.</string>
     <string name="confirm_cancel_reservation">Do you want to cancel this reservation?</string>
 
+    <!--Make Reservation-->
+    <string name="make_reservation_confirmation">Do you want to make a reservation on </string>
+    <string name="reservation_confirmed">Your reservation is confirmed for washing machine </string>
+    <string name="reservation_failed">Could not make reservation. Please try again later.</string>
 </resources>
