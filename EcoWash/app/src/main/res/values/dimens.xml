@@ -10,7 +10,7 @@
     <!--Login Screen-->
     <dimen name="logo_size">80dp</dimen>
     <dimen name="logo_bottom_margin">60dp</dimen>
-    <dimen name="icon_size">40dp</dimen>
+    <dimen name="icon_size">35dp</dimen>
     <dimen name="margin_edit_text">10dp</dimen>
     <dimen name="login_btn_width">140dp</dimen>
     <dimen name="login_btn_margin">20dp</dimen>
