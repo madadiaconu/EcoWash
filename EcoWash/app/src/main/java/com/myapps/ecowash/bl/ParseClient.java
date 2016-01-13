@@ -3,6 +3,8 @@ package com.myapps.ecowash.bl;
 import android.content.Context;
 import android.util.Log;
 
+import com.myapps.ecowash.App;
+import com.myapps.ecowash.R;
 import com.myapps.ecowash.model.Reservation;
 import com.myapps.ecowash.model.WashingMachine;
 import com.myapps.ecowash.util.DateHandler;
@@ -42,7 +44,7 @@ public class ParseClient {
     }
 
     public void login(String username, String password, LogInCallback callback){
-        ParseUser.logInInBackground(username,password,callback);
+        ParseUser.logInInBackground(username, password, callback);
     }
 
     public void getMyReservations(final ParseCallback<List<Reservation>> callback){
@@ -74,15 +76,62 @@ public class ParseClient {
         });
     }
 
+    public void makeReservation(final String date, final int hour, final ParseCallback<String> callback) {
+        final HashMap<String, Object> params = new HashMap<String, Object>();
+        params.put(ParseConstants.DATE, date);
+        params.put(ParseConstants.HOUR, hour);
+        ParseCloud.callFunctionInBackground(ParseConstants.HAS_RESERVATION, params, new FunctionCallback<Boolean>() {
+            @Override
+            public void done(final Boolean hasReservation, ParseException e) {
+                if (e == null) {
+                    if (hasReservation) {
+                        callback.onFailure(new ParseException(17, App.getContext().getResources().getString(R.string.reservation_already_has)));
+                    } else {
+                        getAvailableMachine(date, hour, new ParseCallback<WashingMachine>() {
+                            @Override
+                            public void onSuccess(final WashingMachine washingMachine) {
+                                if (washingMachine != null) {
+                                    HashMap<String, Object> params = new HashMap<String, Object>();
+                                    params.put(ParseConstants.DATE, date);
+                                    params.put(ParseConstants.HOUR, hour);
+                                    params.put(ParseConstants.WASHING_MACHINE_ID, washingMachine.getObjectId());
+                                    ParseCloud.callFunctionInBackground(ParseConstants.MAKE_RESERVATION, params, new FunctionCallback<Object>() {
+                                        @Override
+                                        public void done(Object object, ParseException e) {
+                                            if (e == null) {
+                                                callback.onSuccess(washingMachine.getName());
+                                            } else {
+                                                callback.onFailure(e);
+                                            }
+                                        }
+                                    });
+                                } else {
+                                    callback.onFailure(new ParseException(15, App.getContext().getResources().getString(R.string.reservation_no_machines)));
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(ParseException exception) {
+                                callback.onFailure(exception);
+                            }
+                        });
+                    }
+                } else {
+                    callback.onFailure(e);
+                }
+            }
+        });
+    }
+
     private void getAvailableMachine(String date, int hour, final ParseCallback<WashingMachine> callback){
         final HashMap<String, Object> params = new HashMap<String, Object>();
         params.put(ParseConstants.DATE, date);
         params.put(ParseConstants.HOUR, hour);
-        ParseCloud.callFunctionInBackground("getBusyMachines", params, new FunctionCallback<List<ParseObject>>() {
+        ParseCloud.callFunctionInBackground(ParseConstants.GET_BUSY_MACHINES, params, new FunctionCallback<List<ParseObject>>() {
             @Override
             public void done(final List<ParseObject> busyMachines, ParseException e) {
                 if (e==null) {
-                    ParseQuery<ParseObject> query = ParseQuery.getQuery("WashingMachine");
+                    ParseQuery<ParseObject> query = ParseQuery.getQuery(ParseConstants.WASHING_MACHINE);
                     query.findInBackground(new FindCallback<ParseObject>() {
                         public void done(List<ParseObject> allMachines, ParseException e) {
                             if (e==null) {
@@ -106,51 +155,6 @@ public class ParseClient {
                 } else {
                     callback.onFailure(e);
                 }
-            }
-        });
-    }
-
-    public void getTotalNumberOfMachines(final ParseCallback<Integer> callback){
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("WashingMachine");
-        query.countInBackground(new CountCallback() {
-            @Override
-            public void done(int count, ParseException e) {
-                if (e==null){
-                    callback.equals(count);
-                } else {
-                    callback.onFailure(e);
-                }
-            }
-        });
-    }
-
-    public void makeReservation(final String date, final int hour, final ParseCallback<String> callback){
-        getAvailableMachine(date, hour, new ParseCallback<WashingMachine>() {
-            @Override
-            public void onSuccess(final WashingMachine washingMachine) {
-                if (washingMachine!=null) {
-                    HashMap<String, Object> params = new HashMap<String, Object>();
-                    params.put(ParseConstants.DATE, date);
-                    params.put(ParseConstants.HOUR, hour);
-                    params.put(ParseConstants.WASHING_MACHINE_ID, washingMachine.getObjectId());
-                    ParseCloud.callFunctionInBackground(ParseConstants.MAKE_RESERVATION, params, new FunctionCallback<Object>() {
-                        @Override
-                        public void done(Object object, ParseException e) {
-                            if (e == null) {
-                                callback.onSuccess(washingMachine.getName());
-                            } else {
-                                callback.onFailure(e);
-                            }
-                        }
-                    });
-                } else {
-                    callback.onFailure(new ParseException(15,"no available machine"));
-                }
-            }
-
-            @Override
-            public void onFailure(ParseException exception) {
-                callback.onFailure(exception);
             }
         });
     }

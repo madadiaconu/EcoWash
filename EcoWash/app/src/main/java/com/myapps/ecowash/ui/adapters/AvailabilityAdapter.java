@@ -58,7 +58,7 @@ public class AvailabilityAdapter extends ArrayAdapter<AvailabilityByHour> {
             @Override
             public void onClick(View view) {
                 String message = getContext().getResources().getString(R.string.make_reservation_confirmation) + " " + currentItem.getDate() + ", " + currentItem.getHour() + "h00?";
-                if (Integer.valueOf(viewHolder.nbOfMachines.getText().toString())==0){
+                if (Integer.valueOf(viewHolder.nbOfMachines.getText().toString())==0) {
                     DialogManager.createSimpleDialog(getContext(), R.string.reservation_no_machines).show();
                 } else {
                     DialogManager.createDialog(
@@ -82,7 +82,18 @@ public class AvailabilityAdapter extends ArrayAdapter<AvailabilityByHour> {
                                         @Override
                                         public void onFailure(ParseException exception) {
                                             context.hideProgress();
-                                            DialogManager.createSimpleDialog(getContext(), R.string.reservation_failed).show();
+                                            int messageId;
+                                            switch (exception.getCode()){
+                                                case 15:
+                                                    messageId = R.string.reservation_no_machines;
+                                                    break;
+                                                case 17:
+                                                    messageId = R.string.reservation_already_has;
+                                                    break;
+                                                default:
+                                                    messageId = R.string.reservation_failed;
+                                            }
+                                            DialogManager.createSimpleDialog(getContext(), messageId).show();
                                         }
                                     });
 
