@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.view.View;
 
 import com.myapps.ecowash.bl.ParseClient;
+import com.myapps.ecowash.util.LocalStorageHandler;
 
 public class BaseActivity extends Activity{
 
@@ -31,6 +32,7 @@ public class BaseActivity extends Activity{
 
     public void logout(View view) {
         ParseClient.getInstance().logout();
+        LocalStorageHandler.deleteUser();
         goToActivity(LoginActivity.class,true);
     }
 }

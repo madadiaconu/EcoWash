@@ -7,10 +7,14 @@ public class User {
     private String password;
     private String email;
 
-    public User(String objectId, String username, String password, String email) {
-        this.objectId = objectId;
+    public User(String username, String password){
         this.username = username;
         this.password = password;
+    }
+
+    public User(String objectId, String username, String password, String email) {
+        this(username,password);
+        this.objectId = objectId;
         this.email = email;
     }
 
