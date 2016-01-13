@@ -30,9 +30,10 @@ public class ParseSerializer {
 
     public static WashingMachine buildWashingMachine(ParseObject parseObject){
         try {
+            String objectId = parseObject.getObjectId();
             String name = parseObject.fetchIfNeeded().getString("name");
             int maximumLoad = parseObject.fetchIfNeeded().getInt("maximumLoad");
-            return new WashingMachine(name, maximumLoad);
+            return new WashingMachine(objectId, name, maximumLoad);
         } catch (ParseException ex){
             ex.printStackTrace();
             return null;
