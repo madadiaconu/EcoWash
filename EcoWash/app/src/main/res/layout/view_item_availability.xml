@@ -10,7 +10,9 @@
         android:id="@+id/availabilityHour"
         android:layout_width="0dp"
         android:layout_weight="70"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"/>
 
     <ImageView
         android:layout_width="0dp"

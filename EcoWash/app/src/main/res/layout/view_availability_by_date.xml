@@ -9,14 +9,17 @@
         android:id="@+id/dateTextView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="15"
+        android:layout_weight="10"
         android:layout_gravity="center"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:background="@color/make_reservation"
+        android:textSize="20sp"/>
 
     <ListView
         android:id="@+id/availabilityByHour"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="85">
+        android:layout_weight="90"
+        android:padding="10dp">
     </ListView>
 </LinearLayout>

@@ -26,4 +26,9 @@
     <dimen name="item_padding">5dp</dimen>
     <dimen name="item_text_size">18sp</dimen>
     <dimen name="icon_height">25dp</dimen>
+
+    <!--WashNow-->
+    <dimen name="wash_now_padding">16sp</dimen>
+    <dimen name="wash_now_big_text">60sp</dimen>
+    <dimen name="wash_now_small_text">18sp</dimen>
 </resources>

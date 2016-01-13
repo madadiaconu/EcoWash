@@ -27,4 +27,10 @@
     <string name="make_reservation_confirmation">Do you want to make a reservation on </string>
     <string name="reservation_confirmed">Your reservation is confirmed for washing machine </string>
     <string name="reservation_failed">Could not make reservation. Please try again later.</string>
+    <string name="reservation_no_machines">There are no washing machines available.</string>
+
+    <!--Wash Now-->
+    <string name="yes_explanation">There is at least one free washing machine now.</string>
+    <string name="no_explanation">All washing machines are busy.</string>
+    <string name="wash_now_error">Something went wrong with retrieving the current status. Please try again later.</string>
 </resources>
